@@ -6,4 +6,4 @@ Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 
 Install-WindowsFeature -Name DNS -IncludeManagementTools
 
-Reboot-Computer 
+Restart-Computer
