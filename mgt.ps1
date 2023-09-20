@@ -15,3 +15,22 @@ choco install azcopy10 -y
 choco install azure-cli -y
 choco install powershell-core -y
 choco install 7zip -y
+
+
+#download avd admin
+$avddminurl = "https://blog.itprocloud.de/assets/files/WVDAdmin.msi"
+
+if ((Test-Path c:\temp) -eq $false) {
+
+    New-Item -Path c:\temp -ItemType Directory
+}
+else {
+    write-host "C:\temp Already Exists"
+}
+
+Invoke-WebRequest -Uri $avddminurl -OutFile "C:\Temp\AVDadmin.msi"
+
+$AVDAdminArugment = '/q'
+$AVDAdminInstaller = "C:\Temp\AVDadmin.msi"
+
+Start-Process -FilePath $AVDAdminInstaller -ArgumentList $AVDAdminArugment -Wait -PassThru
